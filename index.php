@@ -51,7 +51,7 @@
 
                 <br /><br />
                 <label>Monto: (coma o punto para dividir los decimales)</label><br />
-                <input type="number" name="monto" onchange="javascript:setTwoNumberDecimal(this);" />
+                <input type="number" name="monto" step="0.01" onchange="javascript:setTwoNumberDecimal(this);" />
 
                 <br /><br />
                 <label>Token: </label><br />
