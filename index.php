@@ -16,6 +16,9 @@
 </head>
 
 <body>
+    <br /><br />
+    <h2>Generador de Codigo de Barras para pagos MP -> BruBank</h2>
+    <br />
     <?php
     switch($_POST['acc']){
         case 'Generar':
@@ -25,6 +28,7 @@
 
             $monto = str_pad($valor, 10, 0, STR_PAD_LEFT);
             ?>
+
             <!-- <span class="codigo">*9006220300<?php echo $documento.$monto.$_POST['token']; ?>00000O*</span>-->
             <img src="https://barcode.tec-it.com/barcode.ashx?data=9006220300<?php echo $documento.$monto.$_POST['token']; ?>00000O&code=&multiplebarcodes=false&translate-esc=false&unit=Fit&dpi=96&imagetype=Gif&rotation=0&color=%23000000&bgcolor=%23ffffff&qunit=Mm&quiet=0"/><br /><br />
             <strong>9006220300<?php echo $documento.$monto.$_POST['token']; ?>00000O</strong>
@@ -36,13 +40,18 @@
 
         default:
             ?>
+            <script type="text/javascript">
+                function setTwoNumberDecimal(el) {
+                    el.value = parseFloat(el.value).toFixed(2);
+                }
+            </script>
             <form method="POST">
                 <label>Documento: </label><br />
                 <input type="text" name="documento" value="" />
 
                 <br /><br />
                 <label>Monto: (coma o punto para dividir los decimales)</label><br />
-                <input type="text" name="monto" value="0.00" />
+                <input type="number" name="monto" onchange="javascript:setTwoNumberDecimal(this);" />
 
                 <br /><br />
                 <label>Token: </label><br />
