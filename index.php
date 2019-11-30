@@ -27,11 +27,25 @@
             $valor = str_replace($separadores , '' , $_POST['monto']);
 
             $monto = str_pad($valor, 10, 0, STR_PAD_LEFT);
-            ?>
 
-            <!-- <span class="codigo">*9006220300<?php echo $documento.$monto.$_POST['token']; ?>00000O*</span>-->
-            <img src="https://barcode.tec-it.com/barcode.ashx?data=9006220300<?php echo $documento.$monto.$_POST['token']; ?>00000O&code=&multiplebarcodes=false&translate-esc=false&unit=Fit&dpi=96&imagetype=Gif&rotation=0&color=%23000000&bgcolor=%23ffffff&qunit=Mm&quiet=0"/><br /><br />
-            <strong>9006220300<?php echo $documento.$monto.$_POST['token']; ?>00000O</strong>
+            switch ($_POST['entidad']) {
+                case 'uala':
+                    ?>
+                    <img src="https://barcode.tec-it.com/barcode.ashx?data=900620330000000<?php echo $documento; ?>000000O&code=&multiplebarcodes=false&translate-esc=false&unit=Fit&dpi=96&imagetype=Gif&rotation=0&color=%23000000&bgcolor=%23ffffff&qunit=Mm&quiet=0"/><br /><br />
+                    <strong>900620330000000<?php echo $documento; ?>000000O
+                    <?php
+                    break;
+
+                case 'brubank'
+                    ?>
+                    <img src="https://barcode.tec-it.com/barcode.ashx?data=9006220300<?php echo $documento.$monto.$_POST['token']; ?>00000O&code=&multiplebarcodes=false&translate-esc=false&unit=Fit&dpi=96&imagetype=Gif&rotation=0&color=%23000000&bgcolor=%23ffffff&qunit=Mm&quiet=0"/><br /><br />
+                    <strong>9006220300<?php echo $documento.$monto.$_POST['token']; ?>00000O</strong>
+                    <?php  
+                default:
+                    header('Location: ?select=1');
+                    break;
+            }
+            ?>
 
             <br /><br />
             <a href="?volver=1" target="_self">Volver al Inicio</a>
@@ -50,11 +64,16 @@
                 <input type="text" name="documento" value="" />
 
                 <br /><br />
-                <label>Monto: (coma o punto para dividir los decimales)</label><br />
+                <label>Monto:</label><br />
                 <input type="number" name="monto" step="0.01" onchange="javascript:setTwoNumberDecimal(this);" />
 
                 <br /><br />
-                <label>Token: </label><br />
+                <label>Token: (Solo BruBank) </label><br />
+                <input type="radio" name="entidad" value="brubank" /> BruBank | 
+                <input type="radio" name="entidad" value="uala" /> Ualá
+
+                <br /><br />
+                <label>Token: (Solo BruBank) </label><br />
                 <input type="text" name="token" value="" />
 
                 <br /><br />
