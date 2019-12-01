@@ -34,14 +34,14 @@
                     <?php
                     break;
 
-                case 'brubank'
+                case 'brubank':
                     ?>
                     <h1>BRUBANK</h1>
                     <img src="https://barcode.tec-it.com/barcode.ashx?data=9006220300<?php echo $documento.$monto.$_POST['token']; ?>00000O&code=&multiplebarcodes=false&translate-esc=false&unit=Fit&dpi=96&imagetype=Gif&rotation=0&color=%23000000&bgcolor=%23ffffff&qunit=Mm&quiet=0"/><br /><br />
                     <strong>9006220300<?php echo $documento.$monto.$_POST['token']; ?>00000O</strong>
                     <?php  
-                default:
-                    header('Location: ?select=1');
+                case '':
+                    echo '<span style="color: red;">* No seleccionaste Entidad</span>';
                     break;
             }
             ?>
@@ -67,7 +67,7 @@
                 <input type="number" name="monto" step="0.01" onchange="javascript:setTwoNumberDecimal(this);" />
 
                 <br /><br />
-                <label>Entidad: </label>
+                <label>Entidad: <span style="color: red;">*</span></label>
                 <input type="radio" name="entidad" value="brubank" style="width: 30px !important; height: 30px;" /> BruBank | 
                 <input type="radio" name="entidad" value="uala" style="width: 30px !important; height: 30px;"/> Ualá
 
