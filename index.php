@@ -3,15 +3,11 @@
 <head>
     <title>Generador de Codigos para MP->BruBank</title>
     <style type="text/css">
-        @font-face {
-            font-family: "CODE39";
-            src: local("Code39FireRedA"), url("font/C39fira.TTF") format("truetype");
-        }
             * { /*box-shadow: inset 0 0 0 1px red;*/ font-size: 20pt; font-family: 'Helvetica', 'Arial', sans-serif; }
             body { text-align: center; padding: 0; margin: 0; width: 100vw; background: #FFF; }
-            input { width: 90vw; font-size: 30pt; }
+            input { width: 50vw; font-size: 30pt; }
 
-            .codigo { font-family: "CODE39"; font-size: 30px; }
+            footer{ font-size: 8pt; margin-top: 15px}
     </style>
 </head>
 
@@ -87,5 +83,14 @@
     }
 
     ?>
+
+    <footer style="text-align: center;">
+        <a href="https://github.com/fedex6/mp_codegen" target="_new" style="text-decoration: none;"><img src="github.png" height="20px"></a>
+        <br />
+        <a href="https://cloudflare.com" target="_new" style="text-decoration: none;"><img src="https://www.cloudflare.com/media/images/web-badges/cf-web-badges-f-4.png" /></a>
+        <br />
+        &copy; Poio <?php echo date('Y'); ?>
+    </footer>
+
 </body>
 </html>
