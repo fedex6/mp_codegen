@@ -1,10 +1,19 @@
+<?php
+//Funciones
+function limpiar($raw){
+    $simbolos = array(",", ".", ";", ":", "/", "*", "+", "-", "_", "%", "$", "#", "@", "!", "^", "&", "[", "]", "{", "}", "(", ")", "<", ">", "'", "|", "=", " ");
+    $limpio = str_replace($simbolos, '', $raw);
+
+    return $limpio;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Generador de Codigos para MP->BruBank</title>
     <link href="https://fonts.googleapis.com/css?family=Sulphur+Point&display=swap" rel="stylesheet">
     <style type="text/css">
-            * { /*box-shadow: inset 0 0 0 1px red;*/ font-size: 18pt; font-family: 'Sulphur Point', sans-serif; }
+            * { font-size: 18pt; font-family: 'Sulphur Point', sans-serif; }
             body { text-align: center; padding: 0; margin: 0; width: 100vw; background: url('background.png'); background-color: #262241; }
             input { width: 50vw; font-size: 24pt; }
             footer{ font-size: 8pt; margin-top: 15px; }
@@ -32,13 +41,13 @@
         
         <h2>Generador de Codigo de Barras</h2>
         <?php
-        switch($_POST['acc']){
+        switch(limpiar($_POST['acc'])){
             case 'Generar':
-                $documento = str_pad($_POST['documento'], 8, "0", STR_PAD_LEFT);
-                $separadores = array(",", ".");
-                $valor = str_replace($separadores , '' , $_POST['monto']);
-                $monto = str_pad($valor, 10, 0, STR_PAD_LEFT);
-                switch ($_POST['entidad']) {
+                $documento = str_pad(limpiar($_POST['documento']), 8, "0", STR_PAD_LEFT);
+                $monto = str_pad(limpiar($_POST["monto"]), 10, 0, STR_PAD_LEFT);
+                $token = limpiar($_POST['token']);
+
+                switch (limpiar($_POST['entidad'])) {
                     case 'uala':
                         ?>
                         <h1>UALA</h1>
@@ -46,12 +55,11 @@
                         <strong>900620330000000<?php echo $documento; ?>000000O</strong>
                         <?php
                         break;
-
                     case 'brubank':
                         ?>
                         <h1>BRUBANK</h1>
-                        <img src="https://barcode.tec-it.com/barcode.ashx?data=9006220300<?php echo $documento.$monto.$_POST['token']; ?>00000O&code=&multiplebarcodes=false&translate-esc=false&unit=Fit&dpi=96&imagetype=Gif&rotation=0&color=%23000000&bgcolor=%23ffffff&qunit=Mm&quiet=0"/><br /><br />
-                        <strong>9006220300<?php echo $documento.$monto.$_POST['token']; ?>00000O</strong>
+                        <img src="https://barcode.tec-it.com/barcode.ashx?data=9006220300<?php echo $documento.$monto.$token; ?>00000O&code=&multiplebarcodes=false&translate-esc=false&unit=Fit&dpi=96&imagetype=Gif&rotation=0&color=%23000000&bgcolor=%23ffffff&qunit=Mm&quiet=0"/><br /><br />
+                        <strong>9006220300<?php echo $documento.$monto.$token; ?>00000O</strong>
                         <?php  
                         break;
                         
@@ -65,6 +73,7 @@
                 <a href="?volver=1" target="_self">Volver al Inicio</a>
                 <?php
                 break;
+
             default:
                 ?>
                 <script type="text/javascript">
