@@ -34,9 +34,9 @@
         <?php
         switch($_POST['acc']){
             case 'Generar':
-                $documento = str_pad($_POST['documento'], 8, "0", STR_PAD_LEFT);
+                $documento = str_pad(mysql_real_escape_string($_POST['documento']), 8, "0", STR_PAD_LEFT);
                 $separadores = array(",", ".");
-                $valor = str_replace($separadores , '' , $_POST['monto']);
+                $valor = str_replace($separadores , '' , mysql_real_escape_string($_POST['monto']));
                 $monto = str_pad($valor, 10, 0, STR_PAD_LEFT);
                 switch ($_POST['entidad']) {
                     case 'uala':
@@ -51,7 +51,7 @@
                         ?>
                         <h1>BRUBANK</h1>
                         <img src="https://barcode.tec-it.com/barcode.ashx?data=9006220300<?php echo $documento.$monto.$_POST['token']; ?>00000O&code=&multiplebarcodes=false&translate-esc=false&unit=Fit&dpi=96&imagetype=Gif&rotation=0&color=%23000000&bgcolor=%23ffffff&qunit=Mm&quiet=0"/><br /><br />
-                        <strong>9006220300<?php echo $documento.$monto.$_POST['token']; ?>00000O</strong>
+                        <strong>9006220300<?php echo $documento.$monto.mysql_real_escape_string($_POST['token']); ?>00000O</strong>
                         <?php  
                         break;
                         
