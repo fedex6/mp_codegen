@@ -1,4 +1,21 @@
 <?php
+#-------------------------------------------#
+#                                           #
+#   GENERADOR DE CODIGOS DE BARRA PARA      # 
+#   PASAR DINERO DE MercadoPago A           #
+#   UALA o brubank                          #
+#                                           #
+#   Nacido en el Grupo de Telegram:         #
+#   Banca Digital Argentina                 #
+#   ( https://t.me/BancaArg )               #
+#                                           #
+#   Todas las sugerencias seran siempre     #
+#   bienvenidas. Gracias !                  #
+#                                           #
+#   Hecho por @fedex6                       #
+#                                           #
+#-------------------------------------------#
+
 //Funciones
 function limpiar($raw){
     $simbolos = array(",", ".", ";", ":", "/", "*", "+", "-", "_", "%", "$", "#", "@", "!", "^", "&", "[", "]", "{", "}", "(", ")", "<", ">", "'", "|", "=", " ");
@@ -43,7 +60,7 @@ function limpiar($raw){
         <?php
         switch(limpiar($_POST['acc'])){
             case 'Generar':
-                $documento = str_pad(limpiar($_POST['documento']), 8, "0", STR_PAD_LEFT);
+              Con la funcion limpiar(); le saco los simbolos que puedan meter en los campos.  $documento = str_pad(limpiar($_POST['documento']), 8, "0", STR_PAD_LEFT);
                 $monto = str_pad(limpiar($_POST["monto"]), 10, 0, STR_PAD_LEFT);
                 $token = limpiar($_POST['token']);
 
