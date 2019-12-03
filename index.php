@@ -1,19 +1,16 @@
-<!------------------------------------------#
-#                                           #
-#   GENERADOR DE CODIGOS DE BARRA PARA      # 
-#   PASAR DINERO DE MercadoPago A           #
-#   UALA o brubank                          #
-#                                           #
-#   Nacido en el Grupo de Telegram:         #
-#   Banca Digital Argentina                 #
-#   ( https://t.me/BancaArg )               #
-#                                           #
-#   Todas las sugerencias seran siempre     #
-#   bienvenidas. Gracias !                  #
-#                                           #
-#   Hecho por @fedex6                       #
-#                                           #
-#------------------------------------------->
+<!----------------------------------------------------------------------#
+#                                                                       #
+#   GENERADOR DE CODIGOS DE BARRA PARA PASAR DINERO DE MercadoPago A    #    
+#   UALA o BRUBANK                                                      #
+#                                                                       #
+#   Nacido en el Grupo de Telegram: Banca Digital Argentina             #
+#   ( https://t.me/BancaArg )                                           #
+#                                                                       #
+#   Todas las sugerencias seran siempre bienvenidas. Gracias !          #
+#                                                                       #
+#   Hecho por @fedex6                                                   #
+#                                                                       #
+#----------------------------------------------------------------------->
 
 <?php 
 //Funciones
