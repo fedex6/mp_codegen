@@ -1,5 +1,4 @@
-<?php
-#-------------------------------------------#
+<!------------------------------------------#
 #                                           #
 #   GENERADOR DE CODIGOS DE BARRA PARA      # 
 #   PASAR DINERO DE MercadoPago A           #
@@ -14,8 +13,9 @@
 #                                           #
 #   Hecho por @fedex6                       #
 #                                           #
-#-------------------------------------------#
+#------------------------------------------->
 
+<?php 
 //Funciones
 function limpiar($raw){
     $simbolos = array(",", ".", ";", ":", "/", "*", "+", "-", "_", "%", "$", "#", "@", "!", "^", "&", "[", "]", "{", "}", "(", ")", "<", ">", "'", "|", "=", " ");
@@ -60,7 +60,7 @@ function limpiar($raw){
         <?php
         switch(limpiar($_POST['acc'])){
             case 'Generar':
-              Con la funcion limpiar(); le saco los simbolos que puedan meter en los campos.  $documento = str_pad(limpiar($_POST['documento']), 8, "0", STR_PAD_LEFT);
+                $documento = str_pad(limpiar($_POST['documento']), 8, "0", STR_PAD_LEFT);
                 $monto = str_pad(limpiar($_POST["monto"]), 10, 0, STR_PAD_LEFT);
                 $token = limpiar($_POST['token']);
 
