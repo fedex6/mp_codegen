@@ -199,7 +199,7 @@ function limpiar($raw){
         </div>
 
         <span class="destacado izquierda">
-            Gracias a todos, especialmente a <a href="https://t.me/gonzagobbi" style="text-decoration: none; color: #4f6cff; font-size: 12pt;" target="_blank"><i class="fab fa-telegram-plane small"></i> Gonza</a> que fue al primero que vi pasar el dato, y a <a href="https://t.me/EPMEC" style="text-decoration: none; color: #4f6cff; font-size: 12pt;" target="_blank"><i class="fab fa-telegram-plane small"></i> Mat&iacute;as</a> que me va pasando la data para hacer esto. :)
+            Gracias a todos, especialmente a <i class="fab fa-telegram-plane small"></i> Gonza que fue al primero que vi pasar el dato, y a <i class="fab fa-telegram-plane small"></i> Mat&iacute;as que me va pasando la data para hacer esto. :)
         </span><br />
 
         <div align="center" style="width: 100%">
